@@ -1,9 +1,117 @@
-// SNACKS CON ES6
+
+
+/*jsnack 4 CON ES6
+Dato un'array con dei capi d'abbigliamento - con informazioni su nome modello, tipologia e colore -
+si aggiunga a ciascun elemento una ulteriore proprietà che indichi il costo del prodotto.
+Per inserire il costo del singolo prodotto si scriva una funzione che generi un numero random da 10 a 50
+(potete sfruttare il map per aggiungere la nuova proprietà)*/
+
+const garments = [
+    {
+        brand: "Giuditta",
+        type: "dress",
+        color: "white",
+    },
+    {
+        brand: "Panerai",
+        type: "wristwatch",
+        color: "gold",
+    },
+    {
+        brand: "Desigual",
+        type: "bag",
+        color: "blue",
+    },
+];
+
+const newGarments = garments.map((element) => {
+    const newElement = {
+        ...element,
+        price: randomNumber (10, 50)
+    }
+
+    return newElement;
+});
+
+
+/***********
+ * UTILITY *
+ **********/
+
+function randomNumber (min, max) {
+    return Math.floor(Math.random() * (max - min + 1) + min);
+}
+
+console.log(newGarments);
 
 
 
 
-/*jsnack2
+
+
+
+/*jsnack 3 con ES6
+Si scriva una funzione che accetti tre argomenti, un array e due numeri (a più piccolo di b).
+La funzione ritornerà un nuovo array con i valori che hanno la posizione compresa tra i due numeri
+inseriti dall'utente (è possibile usare, ad esempio, for/foreach/filter*/
+
+ 
+//REFS    
+
+/*const myArray = ["Paolo", "Fabio", "Lorenzo", "Didier", "Alexandre", "Salvatore"];
+
+let min = parseInt(prompt("Inserisci un numero tra 0 e 5"));
+while(isNaN(min) || (min > 0 && min < myArray.length) ) {
+    min = parseInt(prompt("Inserisci un numero tra 0 e 5"));
+}
+
+
+let max = parseInt(prompt("Inserisci un numero tra "+min+" e 5"));
+while(isNaN(max) || (max < min || max > myArray.length) ) {
+    min = parseInt(prompt("Inserisci un numero tra "+min+" e 5"));
+}
+
+//con Filter
+const newFilterArray = myArray.filter((element, index) => {
+    return min <= index && max >=index;
+});*/
+
+//con for Each
+/*function filterArray(min, max) {
+    myArray.forEach((element, index) => {
+        if(min <= index && max >= index) {
+            newArray.push(element);
+        }
+    });
+}
+filterArray (min, max);
+
+console.log(newArray);*/
+
+
+
+//CON ES5
+/*let newArray = [];
+
+//FUNZIONE
+function filterArray(arr, min, max) {
+    for (let i = 0; i < arr.length; i++) {
+        const tmp = arr[i];
+        if(min <= i && max >= i) {
+            newArray.push(tmp);
+        }
+        
+    }
+}
+
+filterArray (myArray, min, max);
+console.log(newArray);*/
+    
+
+
+
+
+/*jsnack2 CON ES6
 Creare un array di oggetti di squadre di calcio. Ogni squadra avrà diverse proprietà: nome, punti fatti, falli subiti.
 Nome sarà l'unica proprietà da compilare, le altre saranno tutte settate a 0.
 Generare numeri random al posto degli 0 nelle proprietà:
@@ -60,68 +168,7 @@ for (let i = 0; i < updateTeams.length; i++) {
 console.log("New results ", newResults);*/
 
 
-
-
-
-
-
-
-
-
-
-
-/*jsnack 1
-Creare un array di oggetti: 
-Ogni oggetto descriverà una bici da corsa con le seguenti proprietà: nome e peso. 
-Stampare a schermo la bici con peso minore utilizzando destructuring e template literal*/
-/*const bikes = [
-    {
-        bikename: "Merida",
-        weight: 24, 
-    },
-    {
-        bikename: "Kona",
-        weight: 20,
-    },
-    {
-        bikename: "Santa Cruz",
-        weight: 30,
-    }, 
-];
-
-console.log(bikes);
-
-let lightBike = 0;
-
-for (let i = 0; i < bikes.length; i++) {
-    console.log(bikes[i]);
-
-    if(bikes[i].weight < bikes[lightBike].weight) {
-        lightBike = i;
-    }
-}
-
-console.log("La bicicletta più leggera è ", bikes[lightBike]);
-
-document.getElementById("bk").innerHTML = `
-    <span class="bike"> ${bikes[lightBike].bikename} </span>
-    <label for="weight> Peso </label> <span class="weight"> ${bikes[lightBike].weight} </span>
-    `;*/
-
-
-
-
-
-
-
-
-
-
-
-
-// SNACKS CON ES5
-
-/*jsnack2
+/*jsnack2 CON ES5
 A
 creore un array di oggetti di squadre di calcio.
 Ogni squadra avrà diverse proprietà: nome, punti fatti, falli subiti.
@@ -196,14 +243,48 @@ console.table(newTeams);
 
 
 
+/*jsnack 1 CON ES6
+Creare un array di oggetti: 
+Ogni oggetto descriverà una bici da corsa con le seguenti proprietà: nome e peso. 
+Stampare a schermo la bici con peso minore utilizzando destructuring e template literal*/
+/*const bikes = [
+    {
+        bikename: "Merida",
+        weight: 24, 
+    },
+    {
+        bikename: "Kona",
+        weight: 20,
+    },
+    {
+        bikename: "Santa Cruz",
+        weight: 30,
+    }, 
+];
+
+console.log(bikes);
+
+let lightBike = 0;
+
+for (let i = 0; i < bikes.length; i++) {
+    console.log(bikes[i]);
+
+    if(bikes[i].weight < bikes[lightBike].weight) {
+        lightBike = i;
+    }
+}
+
+console.log("La bicicletta più leggera è ", bikes[lightBike]);
+
+document.getElementById("bk").innerHTML = `
+    <span class="bike"> ${bikes[lightBike].bikename} </span>
+    <label for="weight> Peso </label> <span class="weight"> ${bikes[lightBike].weight} </span>
+    `;*/
 
 
 
 
-/*jsnack 1
-Creare un array di oggetti
-Ogni oggetto descriverà una bici da corsa con le seguenti proprietà: nome e peso.
-Stampare a schermo la bici con peso minore*/
+//CON ES5
 
 /*var bikes = [
     {
